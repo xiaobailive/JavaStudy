@@ -43,7 +43,7 @@ public class PreparedStatementUpdateTest {
             ps = conn.prepareStatement(sql);
             //5.填充占位符
             ps.setString(1,"xiaobai");
-            ps.setString(2,"xiaobai1@qq.com");
+            ps.setString(2,"xiaobai2@qq.com");
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date date = simpleDateFormat.parse("2000-01-01");
             ps.setDate(3,new Date(date.getTime()));
