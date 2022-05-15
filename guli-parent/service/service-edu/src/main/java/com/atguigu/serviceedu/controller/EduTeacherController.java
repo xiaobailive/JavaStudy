@@ -33,6 +33,7 @@ public class EduTeacherController {
 
     @GetMapping("findAll")
     public DataResult findAllTeacher() {
+        int i = 10/0;
         List<EduTeacher> list = teacherService.list(null);
         DataResult dataResult = DataResult.ok().data("items", list);
         return dataResult;
