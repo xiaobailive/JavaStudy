@@ -1,6 +1,6 @@
 package com.atguigu.serviceedu.service.impl;
 
-import com.atguigu.serviceedu.entity.EduTeacher;
+import com.atguigu.serviceedu.controller.entity.EduTeacher;
 import com.atguigu.serviceedu.mapper.EduTeacherMapper;
 import com.atguigu.serviceedu.service.EduTeacherService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
