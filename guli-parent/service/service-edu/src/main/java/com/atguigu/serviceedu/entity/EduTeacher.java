@@ -1,4 +1,4 @@
-package com.atguigu.serviceedu.controller.entity;
+package com.atguigu.serviceedu.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 
