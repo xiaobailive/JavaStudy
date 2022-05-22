@@ -3,6 +3,7 @@
 *.iml
 out
 gen
+node_modules/
 /.apt_generated/
 /.classpath
 /.factorypath

@@ -25,6 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/serviceedu/teacher")
+@CrossOrigin
 public class EduTeacherController {
 
     @Autowired
@@ -88,6 +89,7 @@ public class EduTeacherController {
         if (!StringUtils.isEmpty(end)) {
             wrapper.le("gmt_create", end);
         }
+        wrapper.orderByDesc("gmt_create");
 
         teacherService.page(pageTeacher, wrapper);
         List<EduTeacher> records = pageTeacher.getRecords();
