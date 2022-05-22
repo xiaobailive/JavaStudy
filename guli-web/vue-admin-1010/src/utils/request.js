@@ -31,7 +31,7 @@ service.interceptors.response.use(
      * code为非200是抛错 可结合自己业务进行修改
      */
     const res = response.data
-    if (res.code !== 200) {
+    if (res.code !== 200 || res.success !== true) {
       Message({
         message: res.message,
         type: 'error',

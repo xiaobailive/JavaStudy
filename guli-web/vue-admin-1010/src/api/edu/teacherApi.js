@@ -23,6 +23,19 @@ export default {
       method: 'post',
       data: teacher
     })
+  },
+  getTeacherById(id) {
+    return request({
+      url: `/serviceedu/teacher/getTeacherById/${id}`,
+      method: 'get'
+    })
+  },
+  updateTeacherById(teahcer) {
+    return request({
+      url: `/serviceedu/teacher/updateTeacher`,
+      method: 'post',
+      data: teahcer
+    })
   }
 }
 

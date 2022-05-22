@@ -47,13 +47,35 @@ export default {
       saveBtnDisabled: false
     }
   },
+  watch: { // 监听
+    $route(to, from) { // 监听路由 发生变化会执行
+      this.init()
+    }
+  },
   created() {
-
+    this.init()
   },
   methods: {
+    init() {
+      // 判断路径是否有id 如果有代表修改页面
+      if (this.$route.params && this.$route.params.id) {
+        const id = this.$route.params.id
+        this.getTeacherById(id)
+      } else { // 如果不是修改跳转过来的页面 清空页面
+        this.teacher = {}
+      }
+    },
     saveOrUpdate(teacher) {
-      this.saveBtnDisabled = true
-      this.saveTeacher()
+      // 判断是修改还是添加功能
+      if (!this.teacher.id) {
+        // 添加
+        this.saveBtnDisabled = true
+        this.saveTeacher()
+      } else {
+        // 修改
+        this.saveBtnDisabled = true
+        this.updateTeacherById()
+      }
     },
     saveTeacher() {
       teacherApi.saveOrUpdate(this.teacher)
@@ -66,6 +88,28 @@ export default {
         })
         .catch(response => {
           console.warn('添加失败')
+        })
+    },
+    getTeacherById(id) {
+      teacherApi.getTeacherById(id)
+        .then(response => {
+          this.teacher = response.data.rows
+        })
+        .catch(errors => {
+          console.warn('错误!')
+        })
+    },
+    updateTeacherById() {
+      teacherApi.updateTeacherById(this.teacher)
+        .then(response => {
+          this.$message({
+            type: 'success',
+            message: '修改成功!'
+          })
+          this.$router.push({ path: '/teacher/list' })
+        })
+        .catch(errors => {
+          console.warn('修改失败')
         })
     }
   }
